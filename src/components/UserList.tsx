@@ -3,13 +3,13 @@ import React from 'react';
 interface IUserProps {
     name: string;
     email: string;
-    roles: string[];
+    roles?: string[];
 }
 
-const User = ({ name, email, roles }: IUserProps) => {
+const User = ({ roles = [], ...props }: IUserProps) => {
     return (
         <li>
-            {name} ({email}) [{roles.map((role: string) => role)}]
+            {props.name} ({props.email}) [{roles.map((role: string) => role)}]
         </li>
     );
 };
